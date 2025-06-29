@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,4 +14,7 @@ import { CustomSidenav } from "./components/custom-sidenav/custom-sidenav";
 })
 export class App {
   protected title = 'frontend';
+
+  collapsed = signal(false);
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px')
 }
