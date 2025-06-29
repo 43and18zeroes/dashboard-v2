@@ -5,3 +5,10 @@
     <p>Channel 1</p>
   </div>
 </div>
+<mat-nav-list>
+<mat-nav-list>
+  <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.route">
+    <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+    <span matListItemTitle>{{ item.label }}</span>
+  </a>
+</mat-nav-list>
