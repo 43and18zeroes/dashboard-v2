@@ -10,6 +10,7 @@ export type MenuItem = {
   route: string;
 };
 
+
 @Component({
   selector: 'app-custom-sidenav',
   imports: [CommonModule, MatListModule, MatIconModule, RouterModule],
@@ -17,7 +18,9 @@ export type MenuItem = {
   styleUrl: './custom-sidenav.scss',
 })
 
+
 export class CustomSidenav {
+
   menuItems: MenuItem[] = [
     {
       icon: 'dashboard',
