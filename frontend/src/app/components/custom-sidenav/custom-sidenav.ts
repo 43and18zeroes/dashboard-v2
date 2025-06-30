@@ -35,14 +35,19 @@ export class CustomSidenav {
       route: '/dashboard',
     },
     {
-      icon: 'settings',
-      label: 'Settings',
-      route: '/settings',
+      icon: 'ondemand_video',
+      label: 'Content',
+      route: '/content',
     },
     {
-      icon: 'info',
-      label: 'About',
-      route: '/about',
+      icon: 'bar_chart',
+      label: 'Analytics',
+      route: '/analytics',
+    },
+    {
+      icon: 'comment',
+      label: 'Comments',
+      route: '/comments',
     },
   ];
 }
