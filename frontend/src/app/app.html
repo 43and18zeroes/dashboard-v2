@@ -3,12 +3,14 @@
     <mat-toolbar></mat-toolbar>
     <app-custom-sidenav [collapsed]="collapsed()" />
   </mat-sidenav>
-  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+  <mat-sidenav-content [style.margin-left]="sidenavWidth()">
     <mat-toolbar>
       <button mat-icon-button (click)="collapsed.set(!collapsed())">
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="pages__container">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
