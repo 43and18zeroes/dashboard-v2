@@ -5,7 +5,7 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 })
 export class ThemeService {
   private renderer: Renderer2;
-  private currentTheme: 'light-theme' | 'dark-theme' = 'light-theme'; // Standard-Modus
+  private currentTheme: 'light-theme' | 'dark-theme' = 'light-theme';
 
   constructor(private rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
@@ -15,7 +15,7 @@ export class ThemeService {
   toggleTheme(): void {
     this.currentTheme = this.currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
     this.applyTheme(this.currentTheme);
-    localStorage.setItem('theme', this.currentTheme); // Speichern im Local Storage
+    localStorage.setItem('theme', this.currentTheme);
   }
 
   applyTheme(theme: 'light-theme' | 'dark-theme'): void {
@@ -24,7 +24,6 @@ export class ThemeService {
     this.renderer.addClass(document.body, theme);
   }
 
-  // Beim Start der App den gespeicherten Modus laden
   loadTheme(): void {
     const savedTheme = localStorage.getItem('theme') as 'light-theme' | 'dark-theme';
     if (savedTheme) {

@@ -29,7 +29,7 @@ export class App {
   sidenavWidth = computed(() => (this.collapsed() ? '75px' : '250px'));
 
   ngOnInit(): void {
-    this.themeService.loadTheme(); // Thema beim Start laden
+    this.themeService.loadTheme();
   }
 
   toggleTheme(): void {
