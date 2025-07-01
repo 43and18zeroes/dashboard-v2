@@ -4,17 +4,35 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterOutlet } from '@angular/router';
-import { CustomSidenav } from "./components/custom-sidenav/custom-sidenav";
+import { CustomSidenav } from './components/custom-sidenav/custom-sidenav';
+import { ThemeService } from './services/theme';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, CustomSidenav],
+  imports: [
+    RouterOutlet,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    CustomSidenav,
+  ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'frontend';
+  protected title = 'dashboard-v2';
+
+  constructor(private themeService: ThemeService) {}
 
   collapsed = signal(false);
-  sidenavWidth = computed(() => this.collapsed() ? '75px' : '250px')
+  sidenavWidth = computed(() => (this.collapsed() ? '75px' : '250px'));
+
+  ngOnInit(): void {
+    this.themeService.loadTheme(); // Thema beim Start laden
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
 }

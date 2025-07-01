@@ -8,6 +8,9 @@
       <button mat-icon-button (click)="collapsed.set(!collapsed())">
         <mat-icon>menu</mat-icon>
       </button>
+      <button mat-icon-button (click)="toggleTheme()">
+        <mat-icon>brightness_4</mat-icon>
+      </button>
     </mat-toolbar>
     <div class="pages__container">
       <router-outlet></router-outlet>

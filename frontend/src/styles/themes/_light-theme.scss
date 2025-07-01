@@ -1,0 +1,27 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Definieren Sie Ihre Primär-, Akzent- und Warnfarben für den Light-Mode
+$light-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+// $light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+// $light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-warn: mat.m2-define-palette(mat.$m2-red-palette);
+// $light-warn: mat.define-palette(mat.$red-palette);
+
+// Erstellen Sie das Light-Mode-Thema
+$light-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+    warn: $light-warn,
+  ),
+//   typography: mat.define-typography-config(), 
+  density: 0 // Optional: Dichte-Konfiguration
+));
+
+// Wenden Sie das Thema auf das Body-Element an, wenn die Klasse "light-theme" vorhanden ist
+.light-theme {
+  @include mat.all-component-themes($light-theme);
+}
