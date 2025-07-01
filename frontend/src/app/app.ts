@@ -16,5 +16,5 @@ export class App {
   protected title = 'frontend';
 
   collapsed = signal(false);
-  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px')
+  sidenavWidth = computed(() => this.collapsed() ? '75px' : '250px')
 }
