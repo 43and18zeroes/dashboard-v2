@@ -6,6 +6,16 @@ mat-sidenav-container {
     transition: all 300ms ease-in-out;
   }
 
+  mat-sidenav {
+    mat-toolbar {
+      button {
+        img {
+          width: 33px;
+        }
+      }
+    }
+  }
+
   mat-sidenav-content {
     .pages__container {
       padding: 15px 8px;

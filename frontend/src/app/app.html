@@ -1,6 +1,11 @@
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
-    <mat-toolbar></mat-toolbar>
+    <mat-toolbar
+      ><button matButton>
+        <!-- <img src="favicon.webp" alt="Logo" /> -->
+        Dashboard v2
+      </button></mat-toolbar
+    >
     <app-custom-sidenav [collapsed]="collapsed()" />
   </mat-sidenav>
   <mat-sidenav-content [style.margin-left]="sidenavWidth()">
