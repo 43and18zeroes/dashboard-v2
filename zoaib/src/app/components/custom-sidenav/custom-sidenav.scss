@@ -42,7 +42,11 @@
   // }
 }
 
-.selected-menu-item {
+.menu-item {
   border-left: 5px solid;
-  border-left-color: red !important;
+  border-left-color: rgba(0, 0, 0, 0);
+}
+
+.selected-menu-item {
+  border-left-color: red;
 }
