@@ -13,6 +13,7 @@
 <mat-nav-list>
   <mat-nav-list>
     <a
+      class="menu-item"
       mat-list-item
       *ngFor="let item of menuItems"
       [routerLink]="item.route"
@@ -20,7 +21,11 @@
       #rla="routerLinkActive"
       [activated]="rla.isActive"
     >
-      <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{ item.icon }}</mat-icon>
+      <mat-icon
+        [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'"
+        matListItemIcon
+        >{{ item.icon }}</mat-icon
+      >
       <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
     </a>
   </mat-nav-list>
