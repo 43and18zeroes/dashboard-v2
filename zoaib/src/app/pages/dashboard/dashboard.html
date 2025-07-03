@@ -1,1 +1,4 @@
-<app-widget-component [data]="data"></app-widget-component>
+@for (w of store.widgets(); track w.id) {
+
+<app-widget-component [data]="w"></app-widget-component>
+}
