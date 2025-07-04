@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
+  standalone: true,
   imports: [WidgetComponent, MatButtonModule, MatIconModule ],
   providers: [DashboardService],
   templateUrl: './dashboard.html',
