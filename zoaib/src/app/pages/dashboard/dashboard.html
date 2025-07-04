@@ -1,4 +1,6 @@
-@for (w of store.widgets(); track w.id) {
-
-<app-widget-component [data]="w"></app-widget-component>
-}
+<h2>Channel Dashboard</h2>
+<div class="dashboard-widgets">
+  @for (w of store.widgets(); track w.id) {
+  <app-widget-component [data]="w"></app-widget-component>
+  }
+</div>
