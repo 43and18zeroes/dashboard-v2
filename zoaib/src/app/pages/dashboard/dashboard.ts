@@ -4,11 +4,12 @@ import { Widget } from '../../models/dashboard';
 import { DashboardService } from '../../services/dashboard';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [WidgetComponent, MatButtonModule, MatIconModule ],
+  imports: [WidgetComponent, MatButtonModule, MatIconModule, MatMenuModule],
   providers: [DashboardService],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
