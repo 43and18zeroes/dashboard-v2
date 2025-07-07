@@ -10,23 +10,19 @@ export type MenuItem = {
   route: string;
 };
 
-
 @Component({
   selector: 'app-custom-sidenav',
   imports: [CommonModule, MatListModule, MatIconModule, RouterModule],
   templateUrl: './custom-sidenav.html',
   styleUrl: './custom-sidenav.scss',
 })
-
-
 export class CustomSidenav {
-
   sideNavCollapsed = signal(false);
   @Input() set collapsed(val: boolean) {
-    this.sideNavCollapsed.set(val)
+    this.sideNavCollapsed.set(val);
   }
 
-  profilePicSize = computed(() => this.sideNavCollapsed() ? '32' : '100'); 
+  profilePicSize = computed(() => (this.sideNavCollapsed() ? '32' : '100'));
 
   menuItems: MenuItem[] = [
     {
