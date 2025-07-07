@@ -6,7 +6,7 @@ import { NgComponentOutlet } from '@angular/common';
   selector: 'app-widget-component',
   imports: [NgComponentOutlet],
   templateUrl: './widget-component.html',
-  styleUrl: './widget-component.scss'
+  styleUrl: './widget-component.scss',
 })
 export class WidgetComponent {
   data = input.required<Widget>();
