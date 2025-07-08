@@ -3,10 +3,11 @@ import { Widget } from '../../models/dashboard';
 import { NgComponentOutlet } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { WidgetOptions } from "./widget-options/widget-options";
 
 @Component({
   selector: 'app-widget-component',
-  imports: [NgComponentOutlet, MatButtonModule, MatIconModule],
+  imports: [NgComponentOutlet, MatButtonModule, MatIconModule, WidgetOptions],
   templateUrl: './widget-component.html',
   styleUrl: './widget-component.scss',
 })
