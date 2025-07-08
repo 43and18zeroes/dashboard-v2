@@ -30,5 +30,9 @@ export class DashboardService {
     return this.widgets().filter(w => !addedIds.includes(w.id));
   });
 
+  addWidget(w: Widget) {
+    this.addedWidgets.set([...this.addedWidgets(), { ...w }])
+  }
+
   constructor() {}
 }
