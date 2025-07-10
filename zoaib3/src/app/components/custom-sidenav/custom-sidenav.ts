@@ -22,8 +22,8 @@ export type MenuItem = {
     </div>
     <mat-nav-list>
       <a mat-list-item *ngFor="let item of menuItems()">
-        <mat-icon>{{ item.icon }}</mat-icon>
-        <span>{{ item.label }}</span>
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
       </a>
     </mat-nav-list>
   `,
