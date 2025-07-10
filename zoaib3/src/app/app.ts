@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterOutlet } from '@angular/router';
+import { CustomSidenav } from "./components/custom-sidenav/custom-sidenav";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { RouterOutlet } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-  ],
+    CustomSidenav
+],
   template: `
     <mat-toolbar class="mat-elevation-z3">
       <button mat-icon-button>
@@ -21,7 +23,7 @@ import { RouterOutlet } from '@angular/router';
       </button>
     </mat-toolbar>
     <mat-sidenav-container>
-      <mat-sidenav opened mode="side" [style.width]="'250px'"> Hello </mat-sidenav>
+      <mat-sidenav opened mode="side" [style.width]="'250px'"> <app-custom-sidenav></app-custom-sidenav> </mat-sidenav>
       <mat-sidenav-content class="content">
         <router-outlet />
       </mat-sidenav-content>

@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-custom-sidenav',
   imports: [],
   template: `
-    <p>
-      custom-sidenav works!
-    </p>
+<div class="sidenav-header">
+  <img width="100" height="100" src="/assets/user.webp">
+</div>
   `,
   styles: ``
 })
