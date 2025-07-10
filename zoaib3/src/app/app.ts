@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,7 +18,7 @@ import { CustomSidenav } from "./components/custom-sidenav/custom-sidenav";
 ],
   template: `
     <mat-toolbar class="mat-elevation-z3">
-      <button mat-icon-button>
+      <button mat-icon-button (click)="collapsed.set(!collapsed())">
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>
@@ -48,4 +48,8 @@ import { CustomSidenav } from "./components/custom-sidenav/custom-sidenav";
 })
 export class App {
   protected title = 'zoaib3';
+
+  collapsed = signal(false);
+
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px')
 }
