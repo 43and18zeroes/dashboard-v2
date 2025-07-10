@@ -21,7 +21,7 @@ import { RouterOutlet } from '@angular/router';
       </button>
     </mat-toolbar>
     <mat-sidenav-container>
-      <mat-sidenav> </mat-sidenav>
+      <mat-sidenav opened mode="side" [style.width]="'250px'"> Hello </mat-sidenav>
       <mat-sidenav-content class="content">
         <router-outlet />
       </mat-sidenav-content>
