@@ -1,8 +1,17 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, signal } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+export type MenuItem = {
+  icon: string;
+  label: string;
+  route: string;
+};
 
 @Component({
   selector: 'app-custom-sidenav',
-  imports: [],
+  imports: [CommonModule, MatListModule, MatIconModule],
   template: `
     <div class="sidenav-header">
       <img width="100" height="100" src="/assets/user.webp" />
@@ -11,6 +20,12 @@ import { Component } from '@angular/core';
         <p>Christoph</p>
       </div>
     </div>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of menuItems()">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span>{{ item.label }}</span>
+      </a>
+    </mat-nav-list>
   `,
   styles: `
   .sidenav-header {
@@ -36,4 +51,27 @@ import { Component } from '@angular/core';
   }
   `,
 })
-export class CustomSidenav {}
+export class CustomSidenav {
+  menuItems = signal<MenuItem[]>([
+    {
+      icon: 'dashboard',
+      label: 'Dashboard',
+      route: '/dashboard',
+    },
+    {
+      icon: 'ondemand_video',
+      label: 'Content',
+      route: '/content',
+    },
+    {
+      icon: 'bar_chart',
+      label: 'Analytics',
+      route: '/analytics',
+    },
+    {
+      icon: 'comment',
+      label: 'Comments',
+      route: '/comments',
+    },
+  ]);
+}
