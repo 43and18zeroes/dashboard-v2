@@ -27,12 +27,18 @@ export type MenuItem = {
       </div>
     </div>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route"
-      routerLinkActive
-      #rla="routerLinkActive"
-      [activated]="rla.isActive">
+      <a
+        mat-list-item
+        *ngFor="let item of menuItems()"
+        [routerLink]="item.route"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [activated]="rla.isActive"
+      >
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
-        <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
+        <span matListItemTitle *ngIf="!sideNavCollapsed()">{{
+          item.label
+        }}</span>
       </a>
     </mat-nav-list>
   `,
