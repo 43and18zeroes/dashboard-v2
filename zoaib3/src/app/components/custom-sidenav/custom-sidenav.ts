@@ -10,11 +10,12 @@ export type MenuItem = {
 };
 
 @Component({
+  standalone: true,
   selector: 'app-custom-sidenav',
   imports: [CommonModule, MatListModule, MatIconModule],
   template: `
     <div class="sidenav-header">
-      <img width="100" height="100" src="/assets/user.webp" />
+      <img [width]="profilePicSize()" [height]="profilePicSize()" src="/assets/user.webp" />
       <div class="header-text">
         <h2>Your channel</h2>
         <p>Christoph</p>
