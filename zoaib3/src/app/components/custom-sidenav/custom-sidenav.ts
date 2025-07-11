@@ -15,8 +15,12 @@ export type MenuItem = {
   imports: [CommonModule, MatListModule, MatIconModule],
   template: `
     <div class="sidenav-header">
-      <img [width]="profilePicSize()" [height]="profilePicSize()" src="/assets/user.webp" />
-      <div class="header-text">
+      <img
+        [width]="profilePicSize()"
+        [height]="profilePicSize()"
+        src="/assets/user.webp"
+      />
+      <div class="header-text" [class.hide-header-text]="sideNavCollapsed()">
         <h2>Your channel</h2>
         <p>Christoph</p>
       </div>
@@ -24,7 +28,7 @@ export type MenuItem = {
     <mat-nav-list>
       <a mat-list-item *ngFor="let item of menuItems()">
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
-        <span matListItemTitle>{{ item.label }}</span>
+        <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
       </a>
     </mat-nav-list>
   `,
@@ -40,16 +44,25 @@ export type MenuItem = {
     }
 
     .header-text {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
 
-    > p {
-      margin: 0;
-      font-size: 0.8rem;
+      > h2 {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+
+      > p {
+        margin: 0;
+        font-size: 0.8rem;
+      }
     }
   }
+
+  .hide-header-text {
+    opacity: 0;
+    height: 0px;
+  }
+  
   `,
 })
 export class CustomSidenav {
@@ -81,5 +94,5 @@ export class CustomSidenav {
     },
   ]);
 
-  profilePicSize = computed(() => this.sideNavCollapsed() ? '32' : '100')
+  profilePicSize = computed(() => (this.sideNavCollapsed() ? '32' : '100'));
 }
