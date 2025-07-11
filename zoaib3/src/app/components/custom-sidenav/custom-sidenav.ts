@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, Input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 export type MenuItem = {
   icon: string;
@@ -12,7 +13,7 @@ export type MenuItem = {
 @Component({
   standalone: true,
   selector: 'app-custom-sidenav',
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatListModule, MatIconModule, RouterModule],
   template: `
     <div class="sidenav-header">
       <img
@@ -26,7 +27,10 @@ export type MenuItem = {
       </div>
     </div>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems()">
+      <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [activated]="rla.isActive">
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle *ngIf="!sideNavCollapsed()">{{ item.label }}</span>
       </a>
