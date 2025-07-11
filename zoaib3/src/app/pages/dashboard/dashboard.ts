@@ -4,9 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-dashboard',
   imports: [],
   template: `
-    <p>
-      dashboard works!
-    </p>
+    <h1>Dashboard</h1>
   `,
   styles: ``
 })

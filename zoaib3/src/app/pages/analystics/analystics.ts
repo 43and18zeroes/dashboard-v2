@@ -4,9 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-analystics',
   imports: [],
   template: `
-    <p>
-      analystics works!
-    </p>
+    <h1>Analytics</h1>
   `,
   styles: ``
 })

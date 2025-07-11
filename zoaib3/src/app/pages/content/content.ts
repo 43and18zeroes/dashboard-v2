@@ -4,9 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-content',
   imports: [],
   template: `
-    <p>
-      content works!
-    </p>
+    <h1>Content</h1>
   `,
   styles: ``
 })
