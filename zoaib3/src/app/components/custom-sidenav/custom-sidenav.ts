@@ -29,9 +29,10 @@ export type MenuItem = {
     <mat-nav-list>
       <a
         mat-list-item
+        class="menu-item"
         *ngFor="let item of menuItems()"
         [routerLink]="item.route"
-        routerLinkActive
+        routerLinkActive="selected-menu-item"
         #rla="routerLinkActive"
         [activated]="rla.isActive"
       >
@@ -43,6 +44,10 @@ export type MenuItem = {
     </mat-nav-list>
   `,
   styles: `
+  :host * {
+    transition: all 500ms ease-in-out;
+  }
+
   .sidenav-header {
     padding-top: 24px;
     text-align: center;
@@ -54,6 +59,7 @@ export type MenuItem = {
     }
 
     .header-text {
+      height: 3rem;
 
       > h2 {
         margin: 0;
@@ -70,7 +76,16 @@ export type MenuItem = {
 
   .hide-header-text {
     opacity: 0;
-    height: 0px;
+    height: 0px !important;
+  }
+
+  .menu-item {
+    border-left: 5px solid;
+    border-left-color: rgba(0, 0, 0, 0);
+  }
+
+  .selected-menu-item {
+    border-left-color: blue;
   }
   
   `,
