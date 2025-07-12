@@ -36,7 +36,7 @@ export type MenuItem = {
         #rla="routerLinkActive"
         [activated]="rla.isActive"
       >
-        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle *ngIf="!sideNavCollapsed()">{{
           item.label
         }}</span>
@@ -86,6 +86,7 @@ export type MenuItem = {
 
   .selected-menu-item {
     border-left-color: blue;
+    background: rgba(0, 0, 0, 0.05);
   }
   
   `,
