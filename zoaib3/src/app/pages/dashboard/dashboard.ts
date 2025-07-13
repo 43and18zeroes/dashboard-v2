@@ -1,14 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { WidgetComponent } from '../../components/widget-component/widget-component';
 import { DashboardService } from '../../services/dashboard-service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [WidgetComponent],
+  imports: [WidgetComponent, MatButtonModule, MatIcon],
   providers: [DashboardService],
   template: `
+<div class="header">
     <h2>Channel Dashboard</h2>
-
+<button mat-raised-button>
+  <mat-icon>add_circle</mat-icon>
+  Add widget
+</button>
+</div>
     <div class="dashboard-widgets">
       @for (w of store.widgets(); track w.id) {
       <app-widget-component [data]="w"></app-widget-component>
@@ -20,6 +27,12 @@ import { DashboardService } from '../../services/dashboard-service';
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   `,
 })
