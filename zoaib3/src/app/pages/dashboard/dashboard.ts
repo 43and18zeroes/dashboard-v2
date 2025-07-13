@@ -7,11 +7,13 @@ import { DashboardService } from '../../services/dashboard-service';
   imports: [WidgetComponent],
   providers: [DashboardService],
   template: `
-    <h1>Dashboard</h1>
+    <h2>Channel Dashboard</h2>
 
-    @for (w of store.widgets(); track w.id) {
-    <app-widget-component [data]="w"></app-widget-component>
-    }
+    <div class="dashboard-widgets">
+      @for (w of store.widgets(); track w.id) {
+      <app-widget-component [data]="w"></app-widget-component>
+      }
+    </div>
   `,
   styles: ``,
 })

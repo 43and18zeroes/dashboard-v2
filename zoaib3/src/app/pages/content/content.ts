@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-content',
   imports: [],
   template: `
-    <h1>Content</h1>
+    <h2>Content</h2>
   `,
   styles: ``
 })

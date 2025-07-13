@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-comments',
   imports: [],
   template: `
-    <h1>Comments</h1>
+    <h2>Comments</h2>
   `,
   styles: ``
 })
