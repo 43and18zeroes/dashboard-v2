@@ -1,24 +1,20 @@
-import { Component } from '@angular/core';
-import { WidgetComponent } from "../../components/widget-component/widget-component";
-import { Widget } from '../../models/dashboard';
-import { Subscribers } from './widgets/subscribers';
+import { Component, inject } from '@angular/core';
+import { WidgetComponent } from '../../components/widget-component/widget-component';
+import { DashboardService } from '../../services/dashboard-service';
 
 @Component({
   selector: 'app-dashboard',
   imports: [WidgetComponent],
+  providers: [DashboardService],
   template: `
     <h1>Dashboard</h1>
 
-    <app-widget-component [data]=data></app-widget-component>
+    @for (w of store.widgets(); track w.id) {
+    <app-widget-component [data]="w"></app-widget-component>
+    }
   `,
-  styles: ``
+  styles: ``,
 })
 export class Dashboard {
-
-  data: Widget = {
-    id: 1,
-    label: 'Subscribers',
-    content: Subscribers
-  }
-
+  store = inject(DashboardService);
 }
