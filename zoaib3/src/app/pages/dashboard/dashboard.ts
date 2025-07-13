@@ -15,7 +15,13 @@ import { DashboardService } from '../../services/dashboard-service';
       }
     </div>
   `,
-  styles: ``,
+  styles: `
+    .dashboard-widgets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+  `,
 })
 export class Dashboard {
   store = inject(DashboardService);
