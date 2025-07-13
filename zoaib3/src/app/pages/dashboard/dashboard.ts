@@ -2,16 +2,16 @@ import { Component, inject } from '@angular/core';
 import { WidgetComponent } from '../../components/widget-component/widget-component';
 import { DashboardService } from '../../services/dashboard-service';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [WidgetComponent, MatButtonModule, MatIcon],
+  imports: [WidgetComponent, MatButtonModule, MatIconModule],
   providers: [DashboardService],
   template: `
 <div class="header">
     <h2>Channel Dashboard</h2>
-<button mat-raised-button>
+<button mat-raised-button color="primary">
   <mat-icon>add_circle</mat-icon>
   Add widget
 </button>
