@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-widget-options',
-  imports: [],
+  imports: [MatButtonModule, MatIcon],
   template: `
-    <p>
-      widget-options works!
-    </p>
+    <button mat-icon-button class="close-button" (click)="showOptions.set(false)">
+      <mat-icon>close</mat-icon>
+    </button>
   `,
   styles: `
   :host {
@@ -25,9 +27,24 @@ import { Component } from '@angular/core';
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+
+    > div {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
   }
-  `
+
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  `,
 })
 export class WidgetOptions {
+
+  showOptions = model<boolean>(false);
 
 }
