@@ -36,6 +36,7 @@ import { MatMenuModule } from '@angular/material/menu';
     .dashboard-widgets {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-auto-rows: 150px;
       gap: 16px;
     }
     

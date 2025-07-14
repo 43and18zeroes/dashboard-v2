@@ -1,14 +1,37 @@
 import { Component, model } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-widget-options',
-  imports: [MatButtonModule, MatIcon],
+  imports: [MatButtonModule, MatIcon, MatButtonToggleModule],
   template: `
-    <button mat-icon-button class="close-button" (click)="showOptions.set(false)">
+    <button
+      mat-icon-button
+      class="close-button"
+      (click)="showOptions.set(false)"
+    >
       <mat-icon>close</mat-icon>
     </button>
+    <div>
+      Width
+      <mat-button-toggle-group hideSingleSelectionIndicator="true">
+        <mat-button-toggle [value]="1">1</mat-button-toggle>
+        <mat-button-toggle [value]="2">2</mat-button-toggle>
+        <mat-button-toggle [value]="3">3</mat-button-toggle>
+        <mat-button-toggle [value]="4">4</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div>
+      Height
+      <mat-button-toggle-group hideSingleSelectionIndicator="true">
+        <mat-button-toggle [value]="1">1</mat-button-toggle>
+        <mat-button-toggle [value]="2">2</mat-button-toggle>
+        <mat-button-toggle [value]="3">3</mat-button-toggle>
+        <mat-button-toggle [value]="4">4</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
   `,
   styles: `
   :host {
@@ -27,6 +50,7 @@ import { MatIcon } from '@angular/material/icon';
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    --mat-button-toggle-height: 16px;
 
     > div {
       display: flex;
@@ -44,7 +68,5 @@ import { MatIcon } from '@angular/material/icon';
   `,
 })
 export class WidgetOptions {
-
   showOptions = model<boolean>(false);
-
 }
