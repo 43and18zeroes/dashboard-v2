@@ -24,4 +24,8 @@ export class DashboardService {
     const addedIds = this.addedWidgets().map(w => w.id);
     return this.widgets().filter(w => !addedIds.includes(w.id));
   })
+
+  addWidget(w: Widget) {
+    this.addedWidgets.set([...this.addedWidgets(), { ...w }])
+  }
 }

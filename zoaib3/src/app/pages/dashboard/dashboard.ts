@@ -18,14 +18,16 @@ import { MatMenuModule } from '@angular/material/menu';
       </button>
       <mat-menu #widgetMenu="matMenu">
         @for (widget of store.widgetsToAdd(); track widget.id) {
-        <button mat-menu-item>
+        <button mat-menu-item (click)="store.addWidget(widget)">
           {{ widget.label }}
         </button>
-        }
+        } @empty {
+        <button mat-menu-item>No widgets to add</button>
+      }
       </mat-menu>
     </div>
     <div class="dashboard-widgets">
-      @for (w of store.widgets(); track w.id) {
+      @for (w of store.addedWidgets(); track w.id) {
       <app-widget-component [data]="w"></app-widget-component>
       }
     </div>
