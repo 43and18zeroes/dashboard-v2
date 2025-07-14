@@ -5,7 +5,9 @@ import { Views } from '../pages/dashboard/widgets/views';
 
 @Injectable()
 export class DashboardService {
-  widgets = signal<Widget[]>([
+  widgets = signal<Widget[]>([]);
+
+  addedWidgets = signal<Widget[]>([
     {
       id: 1,
       label: 'Subscribers',
@@ -18,14 +20,12 @@ export class DashboardService {
     },
   ]);
 
-  addedWidgets = signal<Widget[]>([]);
-
   widgetsToAdd = computed(() => {
-    const addedIds = this.addedWidgets().map(w => w.id);
-    return this.widgets().filter(w => !addedIds.includes(w.id));
-  })
+    const addedIds = this.addedWidgets().map((w) => w.id);
+    return this.widgets().filter((w) => !addedIds.includes(w.id));
+  });
 
   addWidget(w: Widget) {
-    this.addedWidgets.set([...this.addedWidgets(), { ...w }])
+    this.addedWidgets.set([...this.addedWidgets(), { ...w }]);
   }
 }
