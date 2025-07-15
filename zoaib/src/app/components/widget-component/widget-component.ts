@@ -21,7 +21,7 @@ import { WidgetOptions } from '../widget/widget-options/widget-options';
       <ng-container [ngComponentOutlet]="data().content"></ng-container>
 
       @if (showOptions()) {
-      <app-widget-options [(showOptions)]="showOptions" />
+      <app-widget-options [(showOptions)]="showOptions" [data]="data()" />
       }
     </div>
   `,

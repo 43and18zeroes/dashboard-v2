@@ -1,10 +1,12 @@
-import { Component, model } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIcon } from '@angular/material/icon';
+import { Widget } from '../../../models/dashboard';
 
 @Component({
   selector: 'app-widget-options',
+  standalone: true,
   imports: [MatButtonModule, MatIcon, MatButtonToggleModule],
   template: `
     <button
@@ -16,7 +18,7 @@ import { MatIcon } from '@angular/material/icon';
     </button>
     <div>
       Width
-      <mat-button-toggle-group hideSingleSelectionIndicator="true">
+      <mat-button-toggle-group hideSingleSelectionIndicator="true" [value]="data().columns ?? 1">
         <mat-button-toggle [value]="1">1</mat-button-toggle>
         <mat-button-toggle [value]="2">2</mat-button-toggle>
         <mat-button-toggle [value]="3">3</mat-button-toggle>
@@ -25,7 +27,7 @@ import { MatIcon } from '@angular/material/icon';
     </div>
     <div>
       Height
-      <mat-button-toggle-group hideSingleSelectionIndicator="true">
+      <mat-button-toggle-group hideSingleSelectionIndicator="true" [value]="data().rows ?? 1">
         <mat-button-toggle [value]="1">1</mat-button-toggle>
         <mat-button-toggle [value]="2">2</mat-button-toggle>
         <mat-button-toggle [value]="3">3</mat-button-toggle>
@@ -69,4 +71,5 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class WidgetOptions {
   showOptions = model<boolean>(false);
+  data = input.required<Widget>();
 }
