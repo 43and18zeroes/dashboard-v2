@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Content } from './pages/content/content';
-import { Analytics } from './pages/analytics/analytics';
+import { Analystics } from './pages/analystics/analystics';
 import { Comments } from './pages/comments/comments';
 
 export const routes: Routes = [
@@ -20,7 +20,7 @@ export const routes: Routes = [
     },
     {
         path: 'analytics',
-        component: Analytics
+        component: Analystics
     },
     {
         path: 'comments',
