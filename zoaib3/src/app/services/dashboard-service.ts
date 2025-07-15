@@ -12,6 +12,8 @@ export class DashboardService {
       id: 1,
       label: 'Subscribers',
       content: Subscribers,
+      rows: 2,
+      columns: 2,
     },
     {
       id: 2,

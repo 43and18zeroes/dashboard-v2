@@ -3,7 +3,7 @@ import { Widget } from '../../models/dashboard';
 import { NgComponentOutlet } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { WidgetOptions } from "../widget/widget-options/widget-options";
+import { WidgetOptions } from '../widget/widget-options/widget-options';
 
 @Component({
   selector: 'app-widget-component',
@@ -21,7 +21,7 @@ import { WidgetOptions } from "../widget/widget-options/widget-options";
       <ng-container [ngComponentOutlet]="data().content"></ng-container>
 
       @if (showOptions()) {
-        <app-widget-options [(showOptions)]="showOptions" />
+      <app-widget-options [(showOptions)]="showOptions" />
       }
     </div>
   `,
@@ -47,6 +47,10 @@ import { WidgetOptions } from "../widget/widget-options/widget-options";
     right: 20px;
   }
   `,
+  host: {
+    '[style.grid-area]':
+      '"span " + (data().rows ?? 1) + "/ span " + (data().columns ?? 1)',
+  },
 })
 export class WidgetComponent {
   data = input.required<Widget>();
