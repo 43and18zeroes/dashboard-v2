@@ -1,8 +1,9 @@
-import { Component, input, model } from '@angular/core';
+import { Component, inject, input, model } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIcon } from '@angular/material/icon';
 import { Widget } from '../../../models/dashboard';
+import { DashboardService } from '../../../services/dashboard-service';
 
 @Component({
   selector: 'app-widget-options',
@@ -18,7 +19,11 @@ import { Widget } from '../../../models/dashboard';
     </button>
     <div>
       Width
-      <mat-button-toggle-group hideSingleSelectionIndicator="true" [value]="data().columns ?? 1">
+      <mat-button-toggle-group
+        hideSingleSelectionIndicator="true"
+        [value]="data().columns ?? 1"
+        (change)="store.updateWidget(data().id, { columns: +$event.value })"
+      >
         <mat-button-toggle [value]="1">1</mat-button-toggle>
         <mat-button-toggle [value]="2">2</mat-button-toggle>
         <mat-button-toggle [value]="3">3</mat-button-toggle>
@@ -27,7 +32,11 @@ import { Widget } from '../../../models/dashboard';
     </div>
     <div>
       Height
-      <mat-button-toggle-group hideSingleSelectionIndicator="true" [value]="data().rows ?? 1">
+      <mat-button-toggle-group
+        hideSingleSelectionIndicator="true"
+        [value]="data().rows ?? 1"
+        (change)="store.updateWidget(data().id, { rows: +$event.value })"
+      >
         <mat-button-toggle [value]="1">1</mat-button-toggle>
         <mat-button-toggle [value]="2">2</mat-button-toggle>
         <mat-button-toggle [value]="3">3</mat-button-toggle>
@@ -72,4 +81,6 @@ import { Widget } from '../../../models/dashboard';
 export class WidgetOptions {
   data = input.required<Widget>();
   showOptions = model<boolean>(false);
+
+  store = inject(DashboardService);
 }
