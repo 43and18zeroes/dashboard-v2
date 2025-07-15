@@ -70,6 +70,6 @@ import { Widget } from '../../../models/dashboard';
   `,
 })
 export class WidgetOptions {
-  showOptions = model<boolean>(false);
   data = input.required<Widget>();
+  showOptions = model<boolean>(false);
 }
