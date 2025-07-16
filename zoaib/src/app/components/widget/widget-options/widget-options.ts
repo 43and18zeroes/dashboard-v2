@@ -43,6 +43,19 @@ import { DashboardService } from '../../../services/dashboard-service';
         <mat-button-toggle [value]="4">4</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
+
+    <button
+      mat-icon-button
+      class="move-forward-button"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="move-backward-button"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
   `,
   styles: `
   :host {
@@ -75,6 +88,20 @@ import { DashboardService } from '../../../services/dashboard-service';
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  .move-forward-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -5px;
+  }
+
+  .move-backward-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -5px;
   }
   `,
 })
