@@ -47,12 +47,14 @@ import { DashboardService } from '../../../services/dashboard-service';
     <button
       mat-icon-button
       class="move-forward-button"
+      (click)="store.moveWidgetToRight(data().id)"
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
     <button
       mat-icon-button
       class="move-backward-button"
+      (click)="store.moveWidgetToLeft(data().id)"
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
