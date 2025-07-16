@@ -63,6 +63,7 @@ import { DashboardService } from '../../../services/dashboard-service';
     <button
       mat-icon-button
       class="remove-widget-button"
+      (click)="store.removeWidget(data().id)"
     >
       <mat-icon>delete</mat-icon>
     </button>
