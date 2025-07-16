@@ -41,7 +41,7 @@ export class DashboardService {
   }
 
   moveWidgetToRight(id: number) {
-    const index = this.addedWidgets().findIndex(w => w.id ===id);
+    const index = this.addedWidgets().findIndex(w => w.id === id);
     if (index === this.addedWidgets().length - 1) {
       return;
     }
@@ -53,7 +53,7 @@ export class DashboardService {
   }
 
   moveWidgetToLeft(id: number) {
-    const index = this.addedWidgets().findIndex(w => w.id ===id);
+    const index = this.addedWidgets().findIndex(w => w.id === id);
     if (index === 0) {
       return;
     }
@@ -62,5 +62,9 @@ export class DashboardService {
     [newWidgets[index], newWidgets[index - 1]] = [{ ...newWidgets[index - 1] }, { ...newWidgets[index] }];
 
     this.addedWidgets.set(newWidgets);
+  }
+
+  removeWidget() {
+
   }
 }

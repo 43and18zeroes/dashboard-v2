@@ -51,12 +51,20 @@ import { DashboardService } from '../../../services/dashboard-service';
     >
       <mat-icon>chevron_right</mat-icon>
     </button>
+
     <button
       mat-icon-button
       class="move-backward-button"
       (click)="store.moveWidgetToLeft(data().id)"
     >
       <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      class="remove-widget-button"
+    >
+      <mat-icon>delete</mat-icon>
     </button>
   `,
   styles: `
@@ -104,6 +112,12 @@ import { DashboardService } from '../../../services/dashboard-service';
     top: 50%;
     transform: translateY(-50%);
     left: -5px;
+  }
+
+  .remove-widget-button {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   `,
 })
