@@ -9,7 +9,7 @@ import { WidgetOptions } from '../widget/widget-options/widget-options';
   selector: 'app-widget-component',
   imports: [NgComponentOutlet, MatButtonModule, MatIcon, WidgetOptions],
   template: `
-    <div class="container mat-elevation-z3">
+    <div class="container mat-elevation-z3" [style.background-color]="data().backgroundColor ?? 'white'" [style.color]="data().color ?? 'inherit'">
       <h3 class="m-0">{{ data().label }}</h3>
       <button
         mat-icon-button
