@@ -2,23 +2,68 @@ import { computed, Injectable, signal } from '@angular/core';
 import { Subscribers } from '../pages/dashboard/widgets/subscribers';
 import { Widget } from '../models/dashboard';
 import { Views } from '../pages/dashboard/widgets/views';
+import { WatchTime } from '../pages/dashboard/widgets/watch-time';
+import { Revenue } from '../pages/dashboard/widgets/revenue';
 
 @Injectable()
 export class DashboardService {
-  widgets = signal<Widget[]>([]);
-
-  addedWidgets = signal<Widget[]>([
+  widgets = signal<Widget[]>([
     {
       id: 1,
       label: 'Subscribers',
       content: Subscribers,
-      rows: 2,
-      columns: 2,
+      rows: 1,
+      columns: 1,
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
     },
     {
       id: 2,
       label: 'Views',
       content: Views,
+      rows: 1,
+      columns: 1,
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
+    },
+  ]);
+
+  addedWidgets = signal<Widget[]>([
+    {
+      id: 3,
+      label: 'Subscribers',
+      content: Subscribers,
+      rows: 1,
+      columns: 1,
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
+    },
+    {
+      id: 4,
+      label: 'Views',
+      content: Views,
+      rows: 1,
+      columns: 1,
+      backgroundColor: 'white',
+      color: 'black',
+    },
+    {
+      id: 5,
+      label: 'Watch Time',
+      content: WatchTime,
+      rows: 1,
+      columns: 1,
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
+    },
+    {
+      id: 6,
+      label: 'Revenue',
+      content: Revenue,
+      rows: 1,
+      columns: 1,
+      backgroundColor: 'white',
+      color: 'black',
     },
   ]);
 
@@ -32,7 +77,7 @@ export class DashboardService {
   }
 
   updateWidget(id: number, widget: Partial<Widget>) {
-    const index = this.addedWidgets().findIndex(w => w.id === id);
+    const index = this.addedWidgets().findIndex((w) => w.id === id);
     if (index !== -1) {
       const newWidgets = [...this.addedWidgets()];
       newWidgets[index] = { ...newWidgets[index], ...widget };
@@ -41,30 +86,36 @@ export class DashboardService {
   }
 
   moveWidgetToRight(id: number) {
-    const index = this.addedWidgets().findIndex(w => w.id === id);
+    const index = this.addedWidgets().findIndex((w) => w.id === id);
     if (index === this.addedWidgets().length - 1) {
       return;
     }
 
     const newWidgets = [...this.addedWidgets()];
-    [newWidgets[index], newWidgets[index + 1]] = [{ ...newWidgets[index + 1] }, { ...newWidgets[index] }];
+    [newWidgets[index], newWidgets[index + 1]] = [
+      { ...newWidgets[index + 1] },
+      { ...newWidgets[index] },
+    ];
 
     this.addedWidgets.set(newWidgets);
   }
 
   moveWidgetToLeft(id: number) {
-    const index = this.addedWidgets().findIndex(w => w.id === id);
+    const index = this.addedWidgets().findIndex((w) => w.id === id);
     if (index === 0) {
       return;
     }
 
     const newWidgets = [...this.addedWidgets()];
-    [newWidgets[index], newWidgets[index - 1]] = [{ ...newWidgets[index - 1] }, { ...newWidgets[index] }];
+    [newWidgets[index], newWidgets[index - 1]] = [
+      { ...newWidgets[index - 1] },
+      { ...newWidgets[index] },
+    ];
 
     this.addedWidgets.set(newWidgets);
   }
 
   removeWidget(id: number) {
-    this.addedWidgets.set(this.addedWidgets().filter(w => w.id !== id));
+    this.addedWidgets.set(this.addedWidgets().filter((w) => w.id !== id));
   }
 }

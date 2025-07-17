@@ -15,6 +15,7 @@ import { WidgetOptions } from '../widget/widget-options/widget-options';
         mat-icon-button
         class="settings-button"
         (click)="showOptions.set(true)"
+        [style.--mdc-icon-button-icon-color]="data().color ?? 'inherit'"
       >
         <mat-icon>settings</mat-icon>
       </button>
