@@ -28,24 +28,6 @@ export class DashboardService {
     },
     {
       id: 3,
-      label: 'Subscribers',
-      content: Subscribers,
-      rows: 1,
-      columns: 1,
-      backgroundColor: '#003f5c',
-      color: 'whitesmoke',
-    },
-    {
-      id: 4,
-      label: 'Views',
-      content: Views,
-      rows: 1,
-      columns: 1,
-      backgroundColor: '#003f5c',
-      color: 'whitesmoke',
-    },
-    {
-      id: 5,
       label: 'Watch Time',
       content: WatchTime,
       rows: 1,
@@ -54,7 +36,7 @@ export class DashboardService {
       color: 'whitesmoke',
     },
     {
-      id: 6,
+      id: 4,
       label: 'Revenue',
       content: Revenue,
       rows: 1,
