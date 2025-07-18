@@ -1,4 +1,4 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { Subscribers } from '../pages/dashboard/widgets/subscribers';
 import { Widget } from '../models/dashboard';
 import { Views } from '../pages/dashboard/widgets/views';
@@ -26,9 +26,6 @@ export class DashboardService {
       backgroundColor: '#003f5c',
       color: 'whitesmoke',
     },
-  ]);
-
-  addedWidgets = signal<Widget[]>([
     {
       id: 3,
       label: 'Subscribers',
@@ -44,8 +41,8 @@ export class DashboardService {
       content: Views,
       rows: 1,
       columns: 1,
-      backgroundColor: 'white',
-      color: 'black',
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
     },
     {
       id: 5,
@@ -62,10 +59,12 @@ export class DashboardService {
       content: Revenue,
       rows: 1,
       columns: 1,
-      backgroundColor: 'white',
-      color: 'black',
+      backgroundColor: '#003f5c',
+      color: 'whitesmoke',
     },
   ]);
+
+  addedWidgets = signal<Widget[]>([]);
 
   widgetsToAdd = computed(() => {
     const addedIds = this.addedWidgets().map((w) => w.id);
@@ -118,4 +117,33 @@ export class DashboardService {
   removeWidget(id: number) {
     this.addedWidgets.set(this.addedWidgets().filter((w) => w.id !== id));
   }
+
+  
+  fetchWidgets() {
+    const widgetsAsString = localStorage.getItem('dashboardWidgets');
+    if(widgetsAsString) {
+      const widgets = JSON.parse(widgetsAsString) as Widget[];
+      widgets.forEach(widget => {
+        const content = this.widgets().find(w => w.id === widget.id)?.content;
+        if (content) {
+          widget.content = content;
+        }
+      })
+
+      this.addedWidgets.set(widgets);
+    }
+  }
+
+  constructor() {
+    this.fetchWidgets();
+  }
+
+  saveWidgets = effect(() => {
+    const widgetsWithoutContent: Partial<Widget>[] = this.addedWidgets().map(w => ({ ...w }));
+    widgetsWithoutContent.forEach(w => {
+      delete w.content;
+    });
+
+    localStorage.setItem('dashboardWidgets', JSON.stringify(widgetsWithoutContent))
+  })
 }
