@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { WidgetComponent } from '../../components/widget-component/widget-component';
 import { DashboardService } from '../../services/dashboard-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { wrapGrid } from 'animate-css-grid';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,7 @@ import { MatMenuModule } from '@angular/material/menu';
       }
       </mat-menu>
     </div>
-    <div class="dashboard-widgets">
+    <div #dashboard class="dashboard-widgets">
       @for (w of store.addedWidgets(); track w.id) {
       <app-widget-component [data]="w"></app-widget-component>
       }
@@ -49,4 +50,10 @@ import { MatMenuModule } from '@angular/material/menu';
 })
 export class Dashboard {
   store = inject(DashboardService);
+
+  dashboard = viewChild.required<ElementRef>('dashboard');
+
+  ngOnInit() {
+    wrapGrid(this.dashboard().nativeElement, { duration: 300 });
+  }
 }
