@@ -4,6 +4,7 @@ import { Widget } from '../models/dashboard';
 import { Views } from '../pages/dashboard/widgets/views';
 import { WatchTime } from '../pages/dashboard/widgets/watch-time';
 import { Revenue } from '../pages/dashboard/widgets/revenue';
+import { Analytics } from '../pages/dashboard/widgets/analytics';
 
 @Injectable()
 export class DashboardService {
@@ -43,6 +44,13 @@ export class DashboardService {
       columns: 1,
       backgroundColor: '#003f5c',
       color: 'whitesmoke',
+    },
+    {
+      id: 5,
+      label: 'Channel Analytics',
+      content: Analytics,
+      rows: 1,
+      columns: 1,
     },
   ]);
 
