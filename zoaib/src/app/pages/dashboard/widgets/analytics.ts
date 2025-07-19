@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -11,8 +11,26 @@ import Chart from 'chart.js/auto';
 
     <button mat-raised-button class="mt-16">Go to Channel analytics</button>
   `,
-  styles: ``
+  styles: ``,
 })
 export class Analytics {
+  chart = viewChild.required<ElementRef>('chart');
 
+  ngOnInit() {
+    new Chart(this.chart().nativeElement, {
+      type: 'line',
+      data: {
+        labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+        datasets: [
+          {
+            label: 'Views',
+            data: [100, 102, 105, 110, 115, 120],
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            fill: 'start',
+          },
+        ],
+      },
+    });
+  }
 }

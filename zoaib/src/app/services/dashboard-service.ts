@@ -111,7 +111,7 @@ export class DashboardService {
   
   fetchWidgets() {
     const widgetsAsString = localStorage.getItem('dashboardWidgets');
-    if(widgetsAsString) {
+    if (widgetsAsString) {
       const widgets = JSON.parse(widgetsAsString) as Widget[];
       widgets.forEach(widget => {
         const content = this.widgets().find(w => w.id === widget.id)?.content;
@@ -134,6 +134,6 @@ export class DashboardService {
       delete w.content;
     });
 
-    localStorage.setItem('dashboardWidgets', JSON.stringify(widgetsWithoutContent))
+    localStorage.setItem('dashboardWidgets', JSON.stringify(widgetsWithoutContent));
   })
 }
