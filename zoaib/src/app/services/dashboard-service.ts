@@ -49,8 +49,8 @@ export class DashboardService {
       id: 5,
       label: 'Channel Analytics',
       content: Analytics,
-      rows: 1,
-      columns: 1,
+      rows: 2,
+      columns: 2,
     },
   ]);
 

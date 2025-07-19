@@ -1,9 +1,10 @@
 import { Component, ElementRef, viewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-analytics',
-  imports: [],
+  imports: [MatButtonModule],
   template: `
     <div class="chart-container">
       <canvas #chart></canvas>
@@ -11,7 +12,12 @@ import Chart from 'chart.js/auto';
 
     <button mat-raised-button class="mt-16">Go to Channel analytics</button>
   `,
-  styles: ``,
+  styles: `
+  .chart-container {
+    height: calc(100% - 100px);
+    width: 100%;
+  }
+  `,
 })
 export class Analytics {
   chart = viewChild.required<ElementRef>('chart');
@@ -30,6 +36,14 @@ export class Analytics {
             fill: 'start',
           },
         ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        elements: {
+          line: {
+            tension: 0.4,
+          },
+        },
       },
     });
   }
