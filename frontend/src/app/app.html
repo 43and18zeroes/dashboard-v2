@@ -1,11 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side">
+  <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">
     <mat-toolbar><img src="favicon.webp" alt="Logo" />Dashboard</mat-toolbar>
     <img src="assets/user.webp" alt="User Image" />
   </mat-sidenav>
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
     <mat-toolbar
-      ><button mat-icon-button>
+      ><button mat-icon-button (click)="collapsed.set(!collapsed())">
         <mat-icon>menu</mat-icon>
       </button></mat-toolbar
     >
