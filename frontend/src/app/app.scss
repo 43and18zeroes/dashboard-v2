@@ -1,6 +1,15 @@
 mat-sidenav-container {
-  img {
-    width: 33px;
-    height: 33px;
+  height: 100vh;
+
+  mat-sidenav {
+    border-right: 1px solid black;
+    img {
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  mat-toolbar {
+    border-bottom: 1px solid black;
   }
 }
