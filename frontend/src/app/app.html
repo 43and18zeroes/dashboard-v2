@@ -1,4 +1,23 @@
-<mat-sidenav-container>
+<!-- <mat-sidenav-container>
   <mat-toolbar><img src="favicon.webp" alt="Logo" />Dashboard</mat-toolbar>
   <img src="assets/user.webp" alt="User Image" />
 </mat-sidenav-container>
+<mat-sidenav-content>
+  <mat-toolbar
+    ><button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button></mat-toolbar
+  >
+</mat-sidenav-content> -->
+
+
+    <mat-sidenav-container>
+      <mat-sidenav opened mode="side">
+        <mat-toolbar><img src="favicon.webp" alt="Logo" />Dashboard</mat-toolbar>
+        <img src="assets/user.webp" alt="User Image" />
+      </mat-sidenav>
+      <mat-sidenav-content class="content">
+        <mat-toolbar></mat-toolbar>
+        <router-outlet />
+      </mat-sidenav-content>
+    </mat-sidenav-container>
